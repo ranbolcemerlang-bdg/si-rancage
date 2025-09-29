@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SI RANCAGE</title>
+    <style>
+        :root {
+            --primary: #2E8B57;
+            --secondary: #228B22;
+            --accent: #32CD32;
+            --light: #F5F5F5;
+            --dark: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .login-header {
+            background: var(--primary);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .login-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .login-header h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .smart-badge {
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .login-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .login-form {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .captcha-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .captcha-code {
+            background: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: var(--dark);
+        }
+        
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .forgot-password a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        
+        .login-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background: var(--secondary);
+        }
+        
+        .footer-info {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer-info p {
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .footer-info strong {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                max-width: 100%;
+            }
+            
+            .login-header {
+                padding: 20px 15px;
+            }
+            
+            .login-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>SI RANCAGE</h1>
+            <h2>Sistem Rancabolang Gerak Efektif</h2>
+            <div class="smart-badge">SMART</div>
+            <p class="login-subtitle">Satu Login Untuk Semua Aplikasi Pelayanan</p>
+        </div>
+        
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" class="form-control" placeholder="Masukkan username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" class="form-control" placeholder="Masukkan password" required>
+            </div>
+            
+            <div class="captcha-group">
+                <label for="captcha">Kode Keamanan:</label>
+                <div class="captcha-code" id="captchaDisplay">R4NC4G3</div>
+                <input type="text" id="captcha" class="form-control" placeholder="Masukkan kode" required style="flex: 1;">
+            </div>
+            
+            <div class="forgot-password">
+                <a href="#">Lupa password?</a>
+            </div>
+            
+            <button type="submit" class="login-btn">LOGIN</button>
+        </form>
+        
+        <div class="footer-info">
+            <p><strong>SI RANCAGE KABUPATEN BANDUNG</strong></p>
+            <p>Sistem Pelayanan Publik yang Cepat dan Efektif</p>
+        </div>
+    </div>
+
+    <script>
+        // Generate random captcha
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('captchaDisplay').textContent = captcha;
+            return captcha;
+        }
+        
+        // Initial captcha
+        let currentCaptcha = generateCaptcha();
+        
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const captchaInput = document.getElementById('captcha').value;
+            
+            // Simple validation
+            if (captchaInput.toUpperCase() !== currentCaptcha) {
+                alert('Kode keamanan salah! Silakan coba lagi.');
+                currentCaptcha = generateCaptcha();
+                return;
+            }
+            
+            // Simulate login process
+            alert('Login berhasil! Selamat datang di SI RANCAGE.');
+            
+            // Redirect to main website (ganti dengan URL yang sesuai)
+            window.location.href = 'https://ranbolcemerlang-bdg.github.io/si-rancage-website';
+        });
+        
+        // Refresh captcha every 2 minutes
+        setInterval(generateCaptcha, 120000);
+    </script>
+</body>
+</html>
